@@ -1,0 +1,13 @@
+
+.info-container {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	bottom: 2rem;
+	left: 1rem;
+	width: 25rem;
+	gap: 1.5rem;
+	border-radius: 0.2rem;
+	padding: 1rem;
+	background-color: whitesmoke;
+}
