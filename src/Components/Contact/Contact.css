@@ -1,0 +1,13 @@
+
+.contact-container {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	top: 6rem;
+	right: 6rem;
+	width: 24rem;
+	gap: 1.5rem;
+	border-radius: 0.2rem;
+	padding: 1rem;
+	background-color: whitesmoke;
+}
