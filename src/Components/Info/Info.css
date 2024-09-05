@@ -10,4 +10,5 @@
 	border-radius: 0.2rem;
 	padding: 1rem;
 	background-color: whitesmoke;
+	z-index: 2;
 }

@@ -37,7 +37,6 @@ function App() {
         let newDeltaY = prevDeltaY + e.deltaY
         newDeltaY = Math.max(0, newDeltaY)
         newDeltaY = Math.min(maxDeltaValue, newDeltaY)
-        console.log('New deltaY:', newDeltaY);
         return newDeltaY
         
       })

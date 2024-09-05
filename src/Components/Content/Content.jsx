@@ -24,8 +24,6 @@ function Content({deltaYProp, maxDeltaProp}){
 		transform: `translateY(-${deltaYProp}px)`,
 	};
 	
-	console.log('style_first:', style_first);
-	console.log('style_second:', style_second);
 	
 	return(
 		<div className='content'>
