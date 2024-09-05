@@ -1,0 +1,27 @@
+
+.content {
+	position: fixed;
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.section-left, .section-right {
+	display: flex;
+	flex-basis: 50%;
+	justify-content: center;
+}
+
+.container-content {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 10rem;
+	width: fit-content;
+}
+
+.container-content-block {
+	background-color: pink;
+}
