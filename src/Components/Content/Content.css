@@ -11,18 +11,24 @@
 
 .section-left, .section-right {
 	display: flex;
+	flex-direction: column;
 	flex-basis: 50%;
 	justify-content: center;
+	height: fit-content;
 }
 
 .container-content {
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	gap: 10rem;
 	width: fit-content;
 }
 
 .container-content-block {
 	background-color: pink;
+}
+
+.image {
+	max-width: 80%;
+	height: auto;
 }

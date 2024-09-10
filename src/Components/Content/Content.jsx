@@ -1,20 +1,16 @@
 import './Content.css'
 import { useEffect, useState } from 'react'
+import React from 'react';
+
+const images = import.meta.glob('../../files/*.{png,jpg,jpeg,svg,gif,avif}', { eager: true });
 
 function Content({deltaYProp, maxDeltaProp}){
+	const imageList = Object.values(images).map((image, index) => (
+		<img key={index} src={image.default} alt={`Image ${index + 1}`} className="image" />
+	));
 
-	const [Numbers, setNumbers] = useState([])
-	const numberFunction = () => {
-		let num = []
-		for (let i = 0; i < 30; i++) {
-			num.push(i + 1)
-		}
-		setNumbers(num)
-	}
-
-	useEffect(()=> (
-		numberFunction()
-	), [])
+	const firstTen = imageList.slice(0,10)
+	const lastTen = imageList.slice(10)
 	
 	const style_first = {
 		transform: `translateY(-${maxDeltaProp - deltaYProp}px)`,
@@ -28,21 +24,13 @@ function Content({deltaYProp, maxDeltaProp}){
 	return(
 		<div className='content'>
 		<section className='section-left'>
-			<div className="container-content left" style={style_first}>
-				{Numbers.map(i => (
-					<div key={i} className="container-content-block">
-						LEFT {i}
-					</div>
-				))}
+		<div className="container-content left" style={style_first}>
+			{firstTen}
           </div>
 		</section>
 		<section className='section-right'>
 		<div className="container-content right" style={style_second}>
-            {Numbers.map(i => (
-              <div key={i} className="container-content-block">
-                RIGHT {i}
-              </div>
-            ))}
+			{lastTen}
           </div>
 		</section>
 		</div>
