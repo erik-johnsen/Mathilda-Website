@@ -7,6 +7,8 @@ import { useState, useEffect } from 'react'
 import Content from './Components/Content/Content'
 import jQuery from 'jquery'
 
+import TestLottie from './Components/test/test'
+
 function App() {
 
   /* NAVBAR LOGIC */
@@ -27,10 +29,23 @@ function App() {
   const [maxDelta, setMaxDelta] = useState(0)
 
   useEffect(() => {
+
+    const calculateMaxDelta = () => {
+      const containerHeight = jQuery(".container-content.left").height();
+      const windowHeight = window.innerHeight;
+
+      if (containerHeight > windowHeight) {
+        const maxDeltaValue = containerHeight - windowHeight;
+        setMaxDelta(maxDeltaValue);
+      }
+    };
+    setTimeout(calculateMaxDelta, 100);
+
     const maxDeltaValue = jQuery(".container-content.left").height() - window.innerHeight
     setMaxDelta(maxDeltaValue)
 
-    jQuery(".container-content.left").css("transform", `translateY(-${jQuery(".container-content").height()}px)`)
+
+    jQuery(".container-content.left").css("transform", `translateY(-${maxDeltaValue}px)`)
 
     const ScrollHandler = (e) => {
       setDeltaY((prevDeltaY) => {
@@ -61,7 +76,7 @@ function App() {
       toggleInfoVisibilityProp={toggleInfo}
       toggleContactVisibilityProp={toggleContact}></Navbar>
 
-      <div style={{display: infoVisibility ? 'flex' : 'none'}}>
+      <div className="info-wrapper" style={{display: infoVisibility ? 'flex' : 'none'}}>
         <Info></Info>
       </div>
 
@@ -69,6 +84,7 @@ function App() {
         <Contact></Contact>
       </div>
 
+      {/* <TestLottie></TestLottie> */}
       <Content 
       deltaYProp={deltaY}
       maxDeltaProp={maxDelta}></Content>
